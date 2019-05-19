@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "vue",
+  "name": "thisisme",
   "builds": [
     {"src": "ui/package.json", "use": "@now/static-build"}
   ],
