@@ -6,7 +6,7 @@
             "src": "ui/package.json",
             "use": "@now/static-build",
             "config": {
-                "distDir": "./ui/dist"
+                "distDir": "ui/dist"
             }
         }
     ],
