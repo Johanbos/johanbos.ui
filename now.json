@@ -1,12 +1,28 @@
 {
-  "version": 2,
-  "name": "thisisme",
-  "builds": [
-    {"src": "ui/package.json", "use": "@now/static-build"}
-  ],
-   "routes": [
-      {"src": "/service-worker.js", "headers": { "cache-control": "s-maxage=0" } },
-      { "handle": "filesystem" },
-      {"src": ".*", "dest": "/index.html"}
+    "version": 2,
+    "name": "thisisme",
+    "builds": [
+        {
+            "src": "ui/package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "./ui/dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/service-worker.js",
+            "headers": {
+                "cache-control": "s-maxage=0"
+            }
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": ".*",
+            "dest": "/index.html"
+        }
     ]
 }
