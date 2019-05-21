@@ -1,12 +1,12 @@
 <template>
   <div
     class="pagepart"
-    :style="styleX"
+    :style="randomBackground"
   >
     <slot></slot>
     <div
       class="fidget"
-      :style="styleX"
+      :style="randomBackground"
     ></div>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
   name: 'PagePart',
   props: {},
   computed: {
-    styleX () {
+    randomBackground () {
       var hue = Math.floor(Math.random() * 360);
       return 'background-color: hsl(' + hue + ', 100%, 87.5%)';
     }
@@ -29,6 +29,7 @@ export default {
   text-align: center;
   padding: 5em;
   position: relative;
+  z-index: 1;
 }
 .fidget {
   width: 4em;
@@ -41,5 +42,6 @@ export default {
   margin-right: auto;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 </style>
