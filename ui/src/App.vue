@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App on Now 2.0"/>
+    <PagePart>
+      <Portrait />
+    </PagePart>
+    <PagePart>
+      Hello World ~ more is coming (not winter)
+    </PagePart>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PagePart from './components/PagePart.vue'
+import Portrait from './components/Portrait.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Portrait, PagePart
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>
