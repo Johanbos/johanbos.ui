@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "thisisme",
+    "name": "johanbos.ui",
     "builds": [
         {
             "src": "ui/package.json",

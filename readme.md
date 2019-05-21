@@ -1,4 +1,4 @@
-# This is me user interface
+# Johan Bos ui
 
 - Dependecies
 
