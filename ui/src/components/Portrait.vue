@@ -10,7 +10,7 @@ export default {
   props: {},
   data () {
     return {
-      picture: 'http://johanbos.github.io/johan-bos-large.jpg',
+      picture: 'https://johanbos.github.io/johan-bos-large.jpg',
       name: "Johan Bos",
       dateOfBirth: "1983-05-06"
     }
