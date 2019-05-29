@@ -18,7 +18,7 @@ export default {
   computed: {
     randomBackground () {
       var hue = Math.floor(Math.random() * 360);
-      return 'background-color: hsl(' + hue + ', 100%, 87.5%)';
+      return 'background-color: hsl(' + hue + ', 100%, 98%)';
     }
   }
 }

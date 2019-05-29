@@ -1,18 +1,33 @@
 <template>
   <div class="portrait">
-    <img :src="picture">
+    <div class="item">{{iHeart}}</div>
+    <div class="item"><span
+        v-for="(item, key) in heartItems"
+        :key="key"
+      >{{item}}<br /></span></div>
+    <img
+      class="item"
+      :src="picture"
+    >
   </div>
 </template>
 
 <script>
 export default {
   name: 'Portrait',
-  props: {},
-  data () {
-    return {
-      picture: 'https://johanbos.github.io/johan-bos-large.jpg',
-      name: "Johan Bos",
-      dateOfBirth: "1983-05-06"
+  props: {
+    picture: {
+      type: String,
+      required: true
+    },
+    iHeart: {
+      type: String,
+      required: false,
+      default: "I ❤️"
+    },
+    heartItems: {
+      type: Array,
+      required: true
     }
   }
 }
@@ -20,16 +35,20 @@ export default {
 
 <style scoped>
 .portrait {
-  margin: 40px 0 0;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-items: center;
 }
 
 .portrait img {
   width: 10em;
-  margin-left: 1em;
   border: 0.3em solid black;
   transform: rotate(2deg);
   box-shadow: 5px 10px #888888;
   position: relative;
 }
+
 </style>
