@@ -27,9 +27,10 @@ export default {
 <style scoped>
 .pagepart {
   text-align: center;
-  padding: 5em;
+  padding: 4em 2em;
   position: relative;
 }
+
 .fidget {
   width: 4em;
   height: 2em;
@@ -43,4 +44,9 @@ export default {
   right: 0;
   z-index: 2;
 }
+
+.pagepart:last-child .fidget {
+  display: none;
+}
+
 </style>
