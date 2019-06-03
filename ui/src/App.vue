@@ -93,5 +93,6 @@ export default {
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(100, 100, 100) 50%, rgba(255,255,255,1) 100%);
 }
 </style>
