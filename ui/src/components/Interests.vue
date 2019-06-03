@@ -3,13 +3,13 @@
     <template v-for="(item, key) in items">
       <div
         class="item, title"
-        :key="key"
+        :key="`${key}-title`"
       >
         {{item.title}}
       </div>
       <div
         class="item, passion"
-        :key="key"
+        :key="`${key}-passion`"
       >
       <span v-for="(key) in item.passion" :key=key>⭐️</span>
       </div>

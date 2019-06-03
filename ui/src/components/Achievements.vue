@@ -3,6 +3,7 @@
     :items="itemsFormatted"
     questionProperty="title"
     answerProperty="description"
+    tabName="category"
   />
 </template>
 
@@ -14,7 +15,7 @@ export default {
   components: {
     VueFaqAccordion
   },
-  name: 'Employers',
+  name: 'Achievements',
   props: {
     items: {
       type: Array,
@@ -24,11 +25,12 @@ export default {
   computed: {
     itemsFormatted: function () {
       return Array.from(this.items, i => {
-        var diff = moment.duration(moment().diff(i.ended ? i.ended : i.started)).asYears().toFixed(1);
-        var duration = i.ended ? `${diff} years ago` : `since ${diff} years`;
+        var diff = moment.duration(moment().diff(i.completed)).asYears().toFixed(1);
+        var duration = `${diff} years ago`;
         return {
           title: `${i.title} <small>${duration}</small>`,
-          description: `<p>${i.started} ~ ${i.ended}</p><p>${i.description}</p><p><a href='${i.reference}' target='_blank'>${i.reference}</a></p><p>${Array.join(i.labels, ', ')}</p>`
+          description: `<p>${i.completed}</p><p>${i.motivator}</p><p><a href='${i.reference}' target='_blank'>${i.reference}</a></p>`,
+          category: i.category
         };
       });
     }

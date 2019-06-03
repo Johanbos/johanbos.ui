@@ -21,6 +21,10 @@
       <Employers :items=employers />
     </PagePart>
     <PagePart>
+      <h2>Achievements</h2>
+      <Achievements :items=achievements />
+    </PagePart>
+    <PagePart>
       <h2>Contact {{bio.fullname}}</h2>
       <span>Please send me an <a :href="bio.email | mailTo">e-mail</a> if you want to contact me. Principals only. No recruiters please.</span>
     </PagePart>
@@ -28,17 +32,18 @@
 </template>
 
 <script>
+import axios from 'axios';
 import PagePart from './components/PagePart.vue'
 import Portrait from './components/Portrait.vue'
 import Employers from './components/Employers.vue'
 import Todo from './components/Todo.vue'
 import Interests from './components/Interests.vue'
-import axios from 'axios';
+import Achievements from './components/Achievements.vue'
 
 export default {
   name: 'app',
   components: {
-    Employers, Todo, Portrait, PagePart, Interests
+    Employers, Todo, Portrait, PagePart, Interests, Achievements
   },
   data () {
     return {
@@ -50,7 +55,8 @@ export default {
       },
       employers: [],
       todo: [],
-      interests: []
+      interests: [],
+      achievements: []
     }
   },
   mounted () {
@@ -66,6 +72,9 @@ export default {
     axios
       .get('https://johanbos.github.io/interests.json')
       .then(response => this.interests = response.data);
+    axios
+      .get('https://johanbos.github.io/achievements.json')
+      .then(response => this.achievements = response.data);
   },
   filters: {
     mailTo: function (value) {
