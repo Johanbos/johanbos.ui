@@ -11,11 +11,11 @@
       <p>I'd like to focus on whats next, there is so much cool stuff!</p>
       <Todo :items=todo />
     </PagePart>
-    <!--<PagePart>
+    <PagePart>
       <h2>Interests</h2>
       <p></p>
       <Interests :items=interests />
-    </PagePart>-->
+    </PagePart>
     <PagePart>
       <h2>Employers</h2>
       <Employers :items=employers />
@@ -32,12 +32,13 @@ import PagePart from './components/PagePart.vue'
 import Portrait from './components/Portrait.vue'
 import Employers from './components/Employers.vue'
 import Todo from './components/Todo.vue'
+import Interests from './components/Interests.vue'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    Employers, Todo, Portrait, PagePart
+    Employers, Todo, Portrait, PagePart, Interests
   },
   data () {
     return {
@@ -48,7 +49,8 @@ export default {
         heartItems: [],
       },
       employers: [],
-      todo: []
+      todo: [],
+      interests: []
     }
   },
   mounted () {
@@ -61,6 +63,9 @@ export default {
     axios
       .get('https://johanbos.github.io/to-do.json')
       .then(response => this.todo = response.data);
+    axios
+      .get('https://johanbos.github.io/interests.json')
+      .then(response => this.interests = response.data);
   },
   filters: {
     mailTo: function (value) {

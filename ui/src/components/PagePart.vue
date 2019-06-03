@@ -29,6 +29,8 @@ export default {
   text-align: center;
   padding: 3em 2em;
   position: relative;
+  max-width: 30em;
+  margin: auto;
 }
 
 .fidget {
