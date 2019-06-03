@@ -27,7 +27,7 @@ export default {
 <style scoped>
 .pagepart {
   text-align: center;
-  padding: 4em 2em;
+  padding: 3em 2em;
   position: relative;
 }
 

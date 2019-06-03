@@ -7,15 +7,19 @@
       />
     </PagePart>
     <PagePart>
-      <h1>Welcome</h1>
-      <span>As everything, things are never finished. More is coming!</span>
+      <h2>To-do</h2>
+      <p>I'd like to focus on whats next, there is so much cool stuff!</p>
+      <Todo :items=todo />
     </PagePart>
     <!--<PagePart>
-      <h2>Employers</h2>
-      <Employers
-        :employers=employers
-      />
+      <h2>Interests</h2>
+      <p></p>
+      <Interests :items=interests />
     </PagePart>-->
+    <PagePart>
+      <h2>Employers</h2>
+      <Employers :items=employers />
+    </PagePart>
     <PagePart>
       <h2>Contact {{bio.fullname}}</h2>
       <span>Please send me an <a :href="bio.email | mailTo">e-mail</a> if you want to contact me. Principals only. No recruiters please.</span>
@@ -27,12 +31,13 @@
 import PagePart from './components/PagePart.vue'
 import Portrait from './components/Portrait.vue'
 import Employers from './components/Employers.vue'
+import Todo from './components/Todo.vue'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    Employers, Portrait, PagePart
+    Employers, Todo, Portrait, PagePart
   },
   data () {
     return {
@@ -42,7 +47,8 @@ export default {
         email: "",
         heartItems: [],
       },
-      employers: []
+      employers: [],
+      todo: []
     }
   },
   mounted () {
@@ -52,6 +58,9 @@ export default {
     axios
       .get('https://johanbos.github.io/employers.json')
       .then(response => this.employers = response.data);
+    axios
+      .get('https://johanbos.github.io/to-do.json')
+      .then(response => this.todo = response.data);
   },
   filters: {
     mailTo: function (value) {

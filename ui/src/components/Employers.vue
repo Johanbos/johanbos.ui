@@ -1,6 +1,6 @@
 <template>
   <VueFaqAccordion
-    :items="items"
+    :items="itemsFormatted"
     questionProperty="title"
     answerProperty="description"
   />
@@ -14,21 +14,21 @@ export default {
   components: {
     VueFaqAccordion
   },
-  name: 'Employers',
+  name: 'items',
   props: {
-    employers: {
+    items: {
       type: Array,
       required: true
     }
   },
   computed: {
-    items: function () {
-      return Array.from(this.employers, i => {
+    itemsFormatted: function () {
+      return Array.from(this.items, i => {
         var diff = moment.duration(moment().diff(i.ended ? i.ended : i.started)).asYears().toFixed(1);
         var duration = i.ended ? `${diff} years ago` : `since ${diff} years`;
         return {
           title: `${i.title} <small>${duration}</small>`,
-          description: `<p>${i.started} ~ ${i.ended}</p><p>${i.description}</p><p><a href='${i.reference}' target='_blank'>${i.reference}</a></p>`
+          description: `<p>${i.started} ~ ${i.ended}</p><p>${i.description}</p><p><a href='${i.reference}' target='_blank'>${i.reference}</a></p><p>${Array.join(i.labels, ', ')}</p>`
         };
       });
     }
