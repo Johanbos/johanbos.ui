@@ -5,7 +5,10 @@
       <div class="item"><span
           v-for="(item, key) in heartItems"
           :key="key"
-        >{{item}}<br /></span></div>
+        >
+          {{item}}<br />
+        </span>
+      </div>
     </div>
     <img
       class="item"
@@ -62,5 +65,4 @@ export default {
   justify-items: center;
   word-wrap: none;
 }
-
 </style>

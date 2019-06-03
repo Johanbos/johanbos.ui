@@ -10,6 +10,12 @@
       <h1>Welcome</h1>
       <span>As everything, things are never finished. More is coming!</span>
     </PagePart>
+    <!--<PagePart>
+      <h2>Employers</h2>
+      <Employers
+        :employers=employers
+      />
+    </PagePart>-->
     <PagePart>
       <h2>Contact {{bio.fullname}}</h2>
       <span>Please send me an <a :href="bio.email | mailTo">e-mail</a> if you want to contact me. Principals only. No recruiters please.</span>
@@ -20,12 +26,13 @@
 <script>
 import PagePart from './components/PagePart.vue'
 import Portrait from './components/Portrait.vue'
+import Employers from './components/Employers.vue'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    Portrait, PagePart
+    Employers, Portrait, PagePart
   },
   data () {
     return {
@@ -35,15 +42,16 @@ export default {
         email: "",
         heartItems: [],
       },
-
+      employers: []
     }
   },
   mounted () {
     axios
       .get('https://johanbos.github.io/bio.json')
-      .then(response => {
-        this.bio = response.data;
-      })
+      .then(response => this.bio = response.data);
+    axios
+      .get('https://johanbos.github.io/employers.json')
+      .then(response => this.employers = response.data);
   },
   filters: {
     mailTo: function (value) {
