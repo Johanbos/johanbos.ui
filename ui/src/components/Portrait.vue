@@ -6,7 +6,7 @@
           v-for="(item, key) in heartItems"
           :key="key"
         >
-          {{item}}<br />
+          {{item}}<hr class="seperator" />
         </span>
       </div>
     </div>
@@ -39,6 +39,10 @@ export default {
 </script>
 
 <style scoped>
+.seperator {
+  width: 15%;
+}
+
 .portrait {
   position: relative;
   display: grid;
