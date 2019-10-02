@@ -28,7 +28,7 @@ export default {
         var duration = i.ended ? `${diff} years ago` : `since ${diff} years`;
         return {
           title: `${i.title} <small>${duration}</small>`,
-          description: `<p>${i.started} ~ ${i.ended}</p><p>${i.description}</p><p><a href='${i.reference}' target='_blank'>${i.reference}</a></p><p>${Array.join(i.labels, ', ')}</p>`
+          description: `<p>${i.started} ~ ${i.ended}</p><p>${i.description}</p><p><a href='${i.reference}' target='_blank'>${i.reference}</a></p><p>${Array.prototype.join(i.labels, ', ')}</p>`
         };
       });
     }
