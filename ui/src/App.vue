@@ -7,6 +7,10 @@
       />
     </PagePart>
     <PagePart>
+      <h2>Motto</h2>
+      <p>{{bio.motto}}</p>
+    </PagePart>
+    <PagePart>
       <h2>To-do</h2>
       <p>I'd like to focus on whats next, there is so much cool stuff!</p>
       <Todo :items=todo />
@@ -52,6 +56,7 @@ export default {
         fullname: "",
         email: "",
         heartItems: [],
+        motto: ""
       },
       employers: [],
       todo: [],
